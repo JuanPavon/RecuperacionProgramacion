@@ -1,67 +1,47 @@
-import java.util.ArrayList;
+
 
 public class Persona {
-	
-	  protected String nombre;
-	  protected String correo;
-	  private ArrayList<Articulo> venta = new ArrayList<>();
-	  
-	  
-	  //Constructor, sin incluir el arrayList
-	public Persona(String nombre, String correo) {
+  protected String nombre;
+  private String correoElectronico;
 
-		this.nombre = nombre;
-		this.correo = correo;
-	}
+  public Persona(String nombre, String correoElectronico) {
+    this.nombre = nombre;
+    this.correoElectronico = correoElectronico;
+  }
 
-	//Getters y setters
-	public String getNombre() {
-		return nombre;
-	}
+  public Persona(String nombre2) {
+	this.nombre = nombre2;
+}
 
+public String getNombre() {
+	return nombre;
+}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+public void setNombre(String nombre) {
+	this.nombre = nombre;
+}
 
+public String getCorreoElectronico() {
+	return correoElectronico;
+}
 
-	public String getCorreo() {
-		return correo;
-	}
+public void setCorreoElectronico(String correoElectronico) {
+	this.correoElectronico = correoElectronico;
+}
 
+@Override
+  public String toString() {
+    return "Nombre: " + nombre + "\nCorreo electrónico: " + correoElectronico;
+  }
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
+public int compareTo(Usuario u) {
+	// TODO Auto-generated method stub
+	return 0;
+}
 
+public int compareTo(Comercial c) {
+	// TODO Auto-generated method stub
+	return 0;
+}
 
-	public ArrayList<Articulo> getVenta() {
-		return venta;
-	}
-
-
-	public void setVenta(ArrayList<Articulo> venta) {
-		this.venta = venta;
-	}
-	  
-	  
-	  public void compra(Persona p1, Articulo a1) {
-		    if (p1.getVenta().contains(a1)) {
-		      int cantidadNueva = a1.getCantidadArt();
-		      int posicion = p1.getVenta().indexOf(a1);
-		      int cantidadAntigua = p1.getVenta().get(posicion).getCantidadArt();
-		      int cantidadActualizada = cantidadAntigua + cantidadNueva;
-		      p1.getVenta().get(posicion).setCantidadArt(cantidadActualizada);
-		    } else {
-		      p1.getVenta().add(a1);
-		    }
-		  }
-
-	  //ToString
-	@Override
-	public String toString() {
-		return "Persona [nombre=" + nombre + ", correo=" + correo + ", venta=" + venta + "]";
-	}
-	  
-	  
 }

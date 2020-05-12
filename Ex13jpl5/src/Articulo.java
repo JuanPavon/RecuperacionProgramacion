@@ -1,41 +1,50 @@
 
-public class Articulo {
-	
-	private String nomArt;
-	private int cantidadArt;
-	
-	//Constructor
-	
-	public Articulo(String nomArt, int cantidadArt) {
-		this.nomArt = nomArt;
-		this.cantidadArt = cantidadArt;
-	}
+import java.util.Objects;
 
-	//Getters y setters
-	
-	public String getNomArt() {
-		return nomArt;
-	}
+class Articulo {
+  private String nombre;
+  private int cantidad;
 
-	public void setNomArt(String nomArt) {
-		this.nomArt = nomArt;
-	}
+  public Articulo(String nombre, int cantidad) {
+    this.nombre = nombre;
+    this.cantidad = cantidad;
+  }
 
-	public int getCantidadArt() {
-		return cantidadArt;
-	}
+  @Override
+  public int hashCode() {
+    int hash = 7;
+    hash = 71 * hash + Objects.hashCode(this.nombre);
+    return hash;
+  }
 
-	public void setCantidadArt(int cantidadArt) {
-		this.cantidadArt = cantidadArt;
-	}
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    final Articulo other = (Articulo) obj;
+    if (!Objects.equals(this.nombre, other.nombre)) {
+      return false;
+    }
+    return true;
+  }
 
-	//ToString
-	@Override
-	public String toString() {
-		return this.nomArt + ", " + this.cantidadArt + " unid.\n";
-	}
+  public int getCantidad() {
+    return cantidad;
+  }
+  
+  public void setCantidad(int cantidad) {
+    this.cantidad = cantidad;
+  }
 
-	
-	
-	
+  @Override
+  public String toString() {
+    return nombre + ", " + cantidad + " unid.";
+  }
 }
